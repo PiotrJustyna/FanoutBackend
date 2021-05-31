@@ -67,7 +67,7 @@ namespace SiloHost
                         endpointOptions.GatewayListeningEndpoint = new IPEndPoint(IPAddress.Any, siloEndpointConfiguration.GatewayPort);
                     });
                     siloBuilder.ConfigureApplicationParts(applicationPartManager =>
-                        applicationPartManager.AddApplicationPart(typeof(HelloWorld).Assembly).WithReferences());
+                        applicationPartManager.AddApplicationPart(typeof(Worker).Assembly).WithReferences());
                 })
                 .ConfigureLogging(logging => logging.AddConsole())
                 .RunConsoleAsync();
