@@ -58,6 +58,10 @@ namespace SiloHost
                         clusterOptions.ClusterId = "cluster-of-silos";
                         clusterOptions.ServiceId = "hello-world-service";
                     });
+                    siloBuilder.Configure<GrainCollectionOptions>(configureOptions =>
+                    {
+                        configureOptions.CollectionAge = TimeSpan.FromSeconds(61);
+                    });
                     siloBuilder.Configure<EndpointOptions>(endpointOptions =>
                     {
                         endpointOptions.AdvertisedIPAddress = siloEndpointConfiguration.Ip;
